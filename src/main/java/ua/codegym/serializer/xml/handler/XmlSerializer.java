@@ -5,7 +5,7 @@ import ua.codegym.serializer.shape.Shape;
 
 import java.io.OutputStream;
 
-public class XmlSerializer implements Serializer{
+public class XmlSerializer implements Serializer {
 
     public void serialize(Shape shape, OutputStream os) {
 
