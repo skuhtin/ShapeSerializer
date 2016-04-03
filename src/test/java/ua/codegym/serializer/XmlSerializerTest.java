@@ -13,7 +13,7 @@ import java.io.OutputStream;
 
 import static org.junit.Assert.assertEquals;
 
-public class SerializerTest {
+public class XmlSerializerTest {
 
   @Test
   public void verifyThatSingleCircleIsWritingCorrectly() throws IOException {
