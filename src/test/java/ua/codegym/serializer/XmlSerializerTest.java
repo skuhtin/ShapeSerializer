@@ -50,6 +50,7 @@ public class XmlSerializerTest {
     // given
     Group group = new Group();
     group.add(new Square(0,1, 2));
+    group.add(new Circle(2,3,8));
 
     ByteArrayOutputStream out = new ByteArrayOutputStream();
     Serializer xml = SerializerFactory.newXmlSerializer();
@@ -59,6 +60,6 @@ public class XmlSerializerTest {
 
     // then
     String output = new String(out.toByteArray());
-    assertEquals("<group><square x=\"0\" y=\"1\" side=\"2\"></square></group>", output);
+    assertEquals("<group><square x=\"0\" y=\"1\" side=\"2\"></square><circle x=\"2\" y=\"3\" radius=\"8\"></circle></group>", output);
   }
 }

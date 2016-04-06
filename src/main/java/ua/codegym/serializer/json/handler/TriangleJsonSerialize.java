@@ -18,7 +18,7 @@ public class TriangleJsonSerialize implements Serializer{
     int yB = triangle.getyB();
     int xC = triangle.getxC();
     int yC = triangle.getyC();
-    String out = String.format("{\"nameOfShape\": \"Triangle\",\"parametrs\": {\"xA\": %d,\"yA\": %d,\"xB\": %d,\"yB\": %d,\"xC\": %d,\"yC\": %d}}",xA,yA,xB,yB,xC,yC);
+    String out = String.format("{\"nameOfShape\": \"Triangle\",\"properties\": {\"xA\": %d,\"yA\": %d,\"xB\": %d,\"yB\": %d,\"xC\": %d,\"yC\": %d}}",xA,yA,xB,yB,xC,yC);
     os.write(out.getBytes());
   }
 }
