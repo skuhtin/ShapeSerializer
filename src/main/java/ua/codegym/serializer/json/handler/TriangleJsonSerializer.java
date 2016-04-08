@@ -1,13 +1,15 @@
 package ua.codegym.serializer.json.handler;
 
 import ua.codegym.serializer.Serializer;
+import ua.codegym.serializer.shape.Circle;
+import ua.codegym.serializer.shape.ListOfShapes;
 import ua.codegym.serializer.shape.Shape;
 import ua.codegym.serializer.shape.Triangle;
 
 import java.io.IOException;
 import java.io.OutputStream;
 
-public class TriangleJsonSerialize implements Serializer{
+public class TriangleJsonSerializer implements Serializer{
 
   @Override
   public void serialize(Shape shape, OutputStream os) throws IOException {
