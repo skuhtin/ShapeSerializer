@@ -1,27 +1,26 @@
 package ua.codegym.serializer.json.handler;
 
 import ua.codegym.serializer.Serializer;
-import ua.codegym.serializer.shape.Circle;
-import ua.codegym.serializer.shape.Group;
-import ua.codegym.serializer.shape.Shape;
-import ua.codegym.serializer.shape.Triangle;
+import ua.codegym.serializer.shape.*;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.HashMap;
-import java.util.Map;
 
 public class JsonSerializer implements Serializer {
-  public Map<String, Serializer> object = new HashMap<>();
 
   public JsonSerializer(){
-    object.put(Triangle.class.getCanonicalName(), new TriangleJsonSerialize());
-    object.put(Circle.class.getCanonicalName(), new CircleJsonSerialize());
-    object.put(Group.class.getCanonicalName(), new GroupJsonSerialize());
+    String typeGroup = Group.class.getCanonicalName() + "JSON";
+    String typeCircle = Circle.class.getCanonicalName() + "JSON";
+    String typeTriangle = Triangle.class.getCanonicalName() + "JSON";
+
+    ListOfShapes.addToShapesMap(typeGroup, new GroupJsonSerializer());
+    ListOfShapes.addToShapesMap(typeCircle, new CircleJsonSerializer());
+    ListOfShapes.addToShapesMap(typeTriangle, new TriangleJsonSerializer());
   }
 
   public void serialize(Shape shape, OutputStream os) throws IOException {
-    Serializer serializer = object.get(shape.getType());
+
+    Serializer serializer = ListOfShapes.getShapesMap().get(shape.getType() + "JSON");
     serializer.serialize(shape,os);
   }
 }
